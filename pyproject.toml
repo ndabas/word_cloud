@@ -27,3 +27,6 @@ write_to = "wordcloud/_version.py"
 [tool.cibuildwheel]
 # CPython has no official Windows ARM64 release before 3.11
 skip = ["cp39-win_arm64", "cp310-win_arm64"]
+test-requires = ["pytest"]
+# -o addopts= drops the coverage flags from setup.cfg, which target the source tree rather than the installed wheel
+test-command = "pytest -o addopts= {project}/test"
