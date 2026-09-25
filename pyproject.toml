@@ -23,3 +23,7 @@ packages = ["wordcloud"]
 
 [tool.setuptools_scm]
 write_to = "wordcloud/_version.py"
+
+[tool.cibuildwheel]
+# CPython has no official Windows ARM64 release before 3.11
+skip = ["cp39-win_arm64", "cp310-win_arm64"]
